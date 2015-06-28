@@ -25,7 +25,16 @@ def depth(node, d):
 	Check to see if binary tree is balanced
 '''
 def isBalanced(node):
-	return abs(depth(node.left, 0) - depth(node.right, 0)) <= 1
+
+	if node == None:
+		return true
+
+	diff = abs(depth(node.left, 0) - depth(node.right, 0))
+	
+	if diff >= 1:
+		return false
+	
+	return isBalanced(node.left) && isBalanced(node.right)
 
 '''
 					A
